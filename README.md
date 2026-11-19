@@ -96,10 +96,5 @@ Bioinformatics. https://doi.org/10.1093/bioinformatics/btaf637
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE.md): free for research, personal and other non-commercial use; commercial use is
-not permitted.
-
-Required Notice: Copyright Piotr Keller (https://github.com/pkeller00/DCAFA)
-
-CA2 and FA2 (`src/dcafa/ca2.py`, `src/dcafa/fa2.py`) are ported from the original DCAFA code, which is MIT-licensed;
-its notice is in [LICENSE-MIT-upstream.md](LICENSE-MIT-upstream.md).
+[MIT](LICENSE). CA2 and FA2 (`src/dcafa/ca2.py`, `src/dcafa/fa2.py`) are ported from the original
+[wgrgwrght/DCAFA](https://github.com/wgrgwrght/DCAFA) code, also MIT-licensed.

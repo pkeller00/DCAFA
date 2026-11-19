@@ -5,7 +5,7 @@
 
 with robust (HC) standard errors and BH FDR within the global-feature and community-feature families separately.
 Ported from the original DCAFA implementation (``aggregate_bag_features`` / ``fit_fa_aggregate`` in
-https://github.com/wgrgwrght/DCAFA, MIT licence, see LICENSE-MIT-upstream.md); the numbers are unchanged, the
+https://github.com/wgrgwrght/DCAFA, MIT licence); the numbers are unchanged, the
 output schema is made stable (``q``/``significant`` always present).
 """
 from typing import Dict, List, Optional

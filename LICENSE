@@ -1,11 +1,6 @@
-# MIT licence of the original DCAFA code
-
-`src/dcafa/ca2.py` and `src/dcafa/fa2.py` are ported from `DCAFA.py` in
-<https://github.com/wgrgwrght/DCAFA>, which is distributed under the following licence:
-
-```
 MIT License
 
+Copyright (c) 2026 Piotr Keller
 Copyright (c) 2026 George Wright
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,4 +20,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```

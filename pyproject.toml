@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,10 +7,10 @@ name = "dcafa"
 version = "0.2.0"
 description = "Differential community abundance (CA1, CA2) and feature association (FA1, FA2) analysis of patch-level tissue communities"
 readme = "README.md"
-license = { file = "LICENSE.md" }
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 authors = [{ name = "Piotr Keller" }]
-classifiers = ["License :: Other/Proprietary License"]
 
 dependencies = [
     "numpy>=1.24",

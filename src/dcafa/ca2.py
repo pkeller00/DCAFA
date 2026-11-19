@@ -3,7 +3,7 @@
     target ~ m_1 + ... + m_K (+ covariates)
 
 with bag-clustered standard errors and BH FDR across the membership terms. Ported from the original DCAFA
-implementation (``fit_ca_inst`` in https://github.com/wgrgwrght/DCAFA, MIT licence, see LICENSE-MIT-upstream.md);
+implementation (``fit_ca_inst`` in https://github.com/wgrgwrght/DCAFA, MIT licence);
 the numbers are unchanged, the output schema is made stable (``q``/``significant`` always present).
 """
 from typing import List, Optional
