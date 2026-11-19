@@ -34,7 +34,7 @@ Original research code: [wgrgwrght/DCAFA](https://github.com/wgrgwrght/DCAFA).
 ## Install
 
 ```bash
-pip install git+https://github.com/pkeller00/DCAFA.git@v0.2.0
+pip install git+https://github.com/pkeller00/DCAFA.git@v0.2.1
 # or, for development
 pip install -e ".[test]"
 ```

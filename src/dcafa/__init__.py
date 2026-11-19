@@ -19,4 +19,4 @@ __all__ = [
     "fit_fa1_univariate_multi_targets",
     "aggregate_bag_features", "fit_fa2_aggregate_multi_targets", "plot_fa2_forest",
 ]
-__version__ = "0.2.0"
+__version__ = "0.2.1"
