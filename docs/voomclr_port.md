@@ -3,7 +3,7 @@
 `fit_ca1_multi_targets(..., backend="voomclr")` is a pure-Python port of R
 [voomCLR](https://github.com/koenvandenberge/voomCLR) 0.99.41
 ([Takele Assefa, Verbist & Van den Berge, *Bioinformatics* 2025](https://doi.org/10.1093/bioinformatics/btaf637)).
-No R installation is needed. Result rows are tagged `coding="voomclr_mode_r"`.
+No R installation is needed. Result rows are tagged `coding="voomclr"`.
 
 ## Pipeline
 

@@ -6,7 +6,8 @@
 
 The committed CA1/FA1 references were produced from the original research code (dcafa/ca1_correction/methods,
 2026-11-19) and the CA2/FA2 references from DCAFA.py in https://github.com/wgrgwrght/DCAFA (commit 0c8fe7b), so
-the tests check that the packaged version reproduces both exactly. In the original CA2/FA2 code `significant` is
+the tests check that the packaged version reproduces both exactly. The CA1 voomclr reference has its `coding`
+label renamed from "voomclr_mode_r" to "voomclr"; the numbers are unchanged. In the original CA2/FA2 code `significant` is
 left empty for non-tested rows (covariates); the package reports False there, so references are normalised to that.
 """
 import argparse

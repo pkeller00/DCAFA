@@ -735,7 +735,7 @@ def _fit_voomclr_one_target(
                 "percent_change": (np.exp(beta) - 1.0) * 100.0,
                 "dispersion_alpha": float(dispersion[k]) if dispersion is not None else np.nan,
                 "converged": True, "nobs": float(n),
-                "coding": "voomclr_mode_r",
+                "coding": "voomclr",
                 # voomCLR diagnostics
                 "raw_coef": float(coef_raw[k, j]), "bias": float(bias[j]),
                 "t": float(t_stat), "df_resid": float(df_resid[k]),
