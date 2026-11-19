@@ -1,14 +1,14 @@
-"""The packaged CA1 / FA1 must reproduce the original research implementation (references in tests/data/)."""
+"""The packaged CA1 / CA2 / FA1 / FA2 must reproduce the original implementations (references in tests/data/)."""
 import os
 
 import numpy as np
 import pandas as pd
 import pytest
 
-from make_reference import load, run_all
+from make_reference import load, load_level2, run_all, run_level2
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RESULTS = run_all(*load())
+RESULTS = {**run_all(*load()), **run_level2(*load_level2())}
 
 
 @pytest.mark.parametrize("name", sorted(RESULTS))
@@ -29,3 +29,16 @@ def test_ca1_finds_planted_effects():
     r = RESULTS["ca1_nb_unadjusted"].set_index("response")
     r = r[r["term"] == "Response"] if "term" in r.columns else r
     assert r.loc["c_2", "percent_change"] > 0 and r.loc["c_5", "percent_change"] < 0
+
+
+def test_ca2_finds_planted_effects():
+    # m_4 is the reference; m_2 raises the odds of t relative to it the most
+    r = RESULTS["ca2_unadjusted"].set_index("term")
+    assert list(r.index[r["is_membership"]]) == ["m_1", "m_2", "m_3"]
+    assert r.loc["m_2", "effect_plot"] > r.loc["m_1", "effect_plot"] > 1 and r.loc["m_2", "significant"]
+
+
+def test_fa2_finds_planted_effects():
+    r = RESULTS["fa2_global"].set_index("term")
+    assert r.loc["xg_x_1", "coef"] > 0 and r.loc["xg_x_1", "significant"]
+    assert not r.drop("xg_x_1")["significant"].any()

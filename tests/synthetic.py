@@ -47,3 +47,25 @@ CASES = {
     "nb_age_sex": dict(covariates=["age", "male"], backend="nb"),
     "voomclr_unadjusted": dict(covariates=[], backend="voomclr"),
 }
+
+
+def patch_memberships(seed: int = 2, n_bags: int = 40, per_bag: int = 30, d: int = 4, k: int = 4) -> pd.DataFrame:
+    """Patches with features x_1..x_d, exclusive community memberships m_1..m_k, a binary instance-level target
+    t (more likely in m_2, less in m_4), a bag-level continuous target y (driven by x_1) and a bag covariate age."""
+    rng = np.random.default_rng(seed)
+    y = rng.normal(0, 1, n_bags)
+    age = rng.normal(60, 10, n_bags).round(0)
+    gamma = np.array([0.0, 1.0, 0.0, -1.0])[:k]
+    rows = []
+    for b in range(n_bags):
+        comm = rng.integers(0, k, per_bag)
+        X = rng.normal(0, 1, (per_bag, d))
+        X[:, 0] += 0.8 * y[b]
+        X[:, 1] += 0.5 * (comm == 1)  # x_2 differs by community, for the community means
+        eta = -0.3 + gamma[comm] + rng.normal(0, 0.5)
+        t = rng.random(per_bag) < 1 / (1 + np.exp(-eta))
+        for i in range(per_bag):
+            rows.append({"bag_id": f"B{b:03d}", "t": int(t[i]), "y": y[b], "age": age[b],
+                         **{f"x_{j + 1}": X[i, j] for j in range(d)},
+                         **{f"m_{c + 1}": float(comm[i] == c) for c in range(k)}})
+    return pd.DataFrame(rows)
