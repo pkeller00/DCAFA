@@ -13,7 +13,7 @@
 # Orientation follows edgeR: genes (communities) in rows, libraries (bags) in columns.
 # Entry point: edger_tagwise_dispersion(counts_bags_x_communities, design).
 # =================================================================================================
-from typing import List, Optional, Tuple
+from typing import Tuple
 import numpy as np
 from scipy.interpolate import BSpline
 from scipy.linalg import lapack, null_space

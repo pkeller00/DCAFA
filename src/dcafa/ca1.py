@@ -15,10 +15,9 @@
 #   - Stable per-community dispersion via Method-of-Moments (MoM) + GLM NB
 #   - Diagnostics comparing MoM vs fixed on the same data
 #
-# voomclr backend (2026-10-17): reproduces official R voomCLR 0.99.41 in pure Python (no R needed);
+# voomclr backend: reproduces official R voomCLR 0.99.41 in pure Python (no R needed);
 #   coef/t/p match R to ~1e-7 for voom_var_calc="analytical" and "empirical". edgeR dispersion,
-#   limma squeezeVar, locfit and R lowess are ported in edger_disp.py. The earlier native
-#   approximation (and the voom_match_r switch) was removed; see docs/voomclr_python_vs_r_differences.txt.
+#   limma squeezeVar, locfit and R lowess are ported in _edger.py; see docs/voomclr_port.md.
 # =================================================================================================
  
 import os
@@ -499,7 +498,7 @@ def _apply_reference_coding(effects: pd.DataFrame, term: str, ref_response: str,
 # CLR -> voom precision weights -> weighted linear model per community ->
 # modal bias correction -> limma empirical-Bayes variance moderation.
 # Reproduces official R voomCLR 0.99.41 (coef/t/p to ~1e-7) in pure Python; the
-# edgeR, limma, locfit and R stats pieces are ported in edger_disp.py.
+# edgeR, limma, locfit and R stats pieces are ported in _edger.py.
 # =============================================================================
 def _voomclr_clr_transform(
     counts: np.ndarray,
@@ -562,7 +561,7 @@ def _voomclr_mode(x: np.ndarray, n: Optional[int] = None) -> float:
 
 
 # voomCLR:::.estimateNBDispersion: edgeR TMM norm factors, then estimateDisp, tagwise
-# (line-by-line Python port in edger_disp.py; matches R edgeR 4.10.6 to ~1e-12).
+# (line-by-line Python port in _edger.py; matches R edgeR 4.10.6 to ~1e-12).
 def _voomclr_edger_dispersion(counts: np.ndarray, design: np.ndarray) -> np.ndarray:
     phi = edger_tagwise_dispersion(counts, design)
     if phi.shape != (np.asarray(counts).shape[1],):

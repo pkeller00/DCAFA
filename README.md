@@ -19,7 +19,7 @@ Original research code: [wgrgwrght/DCAFA](https://github.com/wgrgwrght/DCAFA).
   [voomCLR](https://github.com/koenvandenberge/voomCLR) 0.99.41
   ([Takele Assefa, Verbist & Van den Berge, *Bioinformatics* 2025](https://doi.org/10.1093/bioinformatics/btaf637)).
   It matches R to ~1e-7 without needing R; edgeR dispersion, limma squeezeVar, locfit and R lowess are ported in
-  `dcafa/_edger.py` (see `docs/`).
+  `dcafa/_edger.py` (see [docs/voomclr_port.md](docs/voomclr_port.md)).
 - **CA2 (community abundance, instance-level targets)**: does a patch's community predict its own outcome? One GLM
   `t ~ m_1 + ... + m_K + covariates` on hard or soft memberships, bag-clustered SEs, BH FDR across communities. For
   exclusive memberships the last community is the reference.
